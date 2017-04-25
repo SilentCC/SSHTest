@@ -1,11 +1,16 @@
 package com.action;
 import com.opensymphony.xwork2.ActionSupport;
+import com.common.*;
+import com.entity.*;
+import com.dao.*;
 
 public class loginAction extends ActionSupport{
 	
 	private String name;
 	private String pwd;
 	
+	//Dao¿‡
+	private ManageUser manageUser;
 	private String result;
 	
 	public String getResult() {
@@ -30,9 +35,10 @@ public class loginAction extends ActionSupport{
 	
 	public String execute(){
 		
-		System.out.println("ok");
+	
 		System.out.println(name+" "+pwd);
-		if(name.equals("123")&&pwd.equals("123")){
+		manageUser=new ManageUser();
+		if(manageUser.CheckLogin(name, pwd)==true){
 			result = "{\"login\":\"success\"}";  
 			return SUCCESS;
 		}

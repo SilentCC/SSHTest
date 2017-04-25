@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+<session-factory>
+	<!-- 数据库连接驱动 -->
+	<property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+	<!-- Oracle数据库连接的url -->
+	<property name="connection.url">jdbc:oracle:thin:@127.0.0.1:1521:xe</property>
+	<!-- 用户名 -->
+	<property name="connection.username">root</property>
+	<!-- 密码 -->
+	<property name="connection.password">root</property>
+	<!-- 数据库语言 -->
+	<property name="dialect">org.hibernate.dialect.OracleDialect</property>
+	<!-- 根据映射文件自动创建表（第一次创建，以后是修改） -->
+	<property name="show_sql">true</property>
+	<property name="hbm2ddl.auto">update</property>
+	<!-- 配置映射文件 -->
+	<mapping resource="com/entity/Users.hbm.xml"/>
+	
+</session-factory>
+</hibernate-configuration>
